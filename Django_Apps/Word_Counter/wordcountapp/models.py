@@ -8,11 +8,13 @@ class MyText:
         self.text = text
         self.text_count = count
 
-    @property
+    
     def get_count(self):
+        # process anything
         return self.text_count
     
-    @property
+    
     def get_text(self):
+        #process anything
         return self.text
- 
+
