@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel='stylesheet' href="{% static 'style.css' %}">
+<h1>
+    Word-Counter
+</h1>
+<h2>Please, enter any text to count words:-</h2>
+<form method="POST" action="/counter">
+    {% csrf_token %}
+    <textarea name="text" rows="25" cols="100"></textarea>
+    <input type="submit">
+</form>
+
+
