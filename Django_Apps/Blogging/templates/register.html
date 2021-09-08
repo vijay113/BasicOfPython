@@ -1,3 +1,27 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'app.css' %}" ></link>
+
 <h1>
-    hello users
-    </h1>
+    Sign Up Below:
+</h1>
+<li><a class="button" href="/">Home</a></li>
+<li><a class="button" href="login">Sign In</a></li>
+
+
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+
+<form method="POST" action="register">
+    {% csrf_token %}
+    <p>User Name:</p>
+ <input type="text" name="username"/>
+ <p>User Mail:</p>
+ <input type="email" name="email"/>
+ <p>User Password:</p>
+ <input type="password" name="password"/>
+ <p>Confirm Password:</p>
+ <input type="password" name="password2"/>
+ <input type="submit"/>
+</form>
+

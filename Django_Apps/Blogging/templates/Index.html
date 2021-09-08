@@ -1,4 +1,15 @@
 <h1>
-Hello Users.
-Welcome here.
+Home page: We are here for You.
 </h1>
+
+{% if user.is_authenticated %}
+<h2>Welcome, {{user.username}}. </h2>
+<p>you are successfully logged-in.</p>
+<li><a class="button" href="logout">Sign Out</a></li>
+{% else %}
+<h2>Go to Register Link to join us.</h2>
+<li><a class="button" href="login">Sign In</a></li>
+<li><a class="button" href="register">Sign Up</a></li>
+{% endif %}
+
+
