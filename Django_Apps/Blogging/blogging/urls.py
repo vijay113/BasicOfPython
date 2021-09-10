@@ -20,5 +20,6 @@ import blogging_users
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("blogging_users.urls"))
+    path("",include("blogging_users.urls")),
+    path("",include("posts.urls"))
 ]

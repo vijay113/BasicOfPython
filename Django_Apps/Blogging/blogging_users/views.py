@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-
+from posts.models import Post
 
 
 def register(request):
@@ -29,9 +29,18 @@ def register(request):
     else:
         return render(request,"register.html")
 
+
+
+
 def index(request):
-    return render(request,"Index.html")
+    posts = Post.objects.all()
+    posts = posts.order_by("created_at")
+    return render(request,"Index.html",{"posts":posts})
     #return HttpResponse(request,"<h1>Welcome Users</h1>")
+
+
+
+
 
 def login(request):
     if request.method == "POST":
@@ -54,6 +63,9 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect("login")
+
+
+
 
 
 def posts(request,pk):
