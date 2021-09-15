@@ -9,8 +9,12 @@ sales list:
 <br/>
 
 {% for obj in object_list  %}
- <p><a href="{{obj.get_absolute_url}}">Transaction Id: {{obj.transaction_id}} </a></p>
- <p>Total Amount: {{obj.total_price}}</p>
+ <div class="card mb-3">
+    <!-- <p><a href="{% url 'sales:detail' obj.pk %}" class="card-body">Transaction Id: {{obj.transaction_id}} </a></p> -->
+    <p><a href="{{obj.get_absolute_url}}">Transaction Id: {{obj.transaction_id}} </a></p>
+ 
+    <p>Total Amount: {{obj.total_price}}</p>
+</div>
 
 {% endfor %}
 
