@@ -134,6 +134,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/"static",
     BASE_DIR/"sales"/"static"/"sales",
+    BASE_DIR/"reports"/"static"/"reports",
 ]
 
 MEDIA_URL = "/media/"
