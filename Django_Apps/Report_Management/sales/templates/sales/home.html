@@ -25,7 +25,7 @@ Welcome to home page.
        </div>
        <div class="modal-body" id="modal-body">
          <div id=alert-box></div>
-         <form id="report-form">
+         <form id="report-form" autocomplete="off">
             {% csrf_token %}
             {{report_form|crispy}}
             <button type="submit" class="btn btn-primary mt-2">Save</button>

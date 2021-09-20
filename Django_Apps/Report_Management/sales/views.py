@@ -8,8 +8,11 @@ from reports.forms import ReportForm
 import pandas as pd
 from .utils import get_chart,get_customer_from_id,get_salesman_from_id
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
+@login_required
 def home_view(request):
     search_form = SalesSearchForm(request.POST or None)
     report_form = ReportForm()
@@ -89,22 +92,22 @@ def home_view(request):
 
 
 
-class SaleListView(ListView):
+class SaleListView(LoginRequiredMixin,ListView):
     model = Sale
     template_name = "sales/main.html"
     #context_object_name = "sales_list"
 
 
-class SaleDetailView(DetailView):
+class SaleDetailView(LoginRequiredMixin, DetailView):
     model = Sale
     template_name = "sales/detail.html"
 
-
+@login_required
 def sale_list_view(request):
     qs = Sale.objects.all()
     return render(request,"sales/main.html",{"qs":qs})
 
-
+@login_required
 def sale_detail_view(request,**kwargs):
     pk = kwargs.get("pk")
     obj = Sale.objects.get(pk = pk)

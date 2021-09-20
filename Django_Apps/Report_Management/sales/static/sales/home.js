@@ -49,6 +49,7 @@ reportBtn.addEventListener("click",()=>{
                 console.log(response)
                 handleAlerts("success","report created.")
                 // $('#reportModal').modal('toggle');
+                reportForm.reset()
             },
             error: function(error){
                 console.log(error)
